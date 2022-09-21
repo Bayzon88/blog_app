@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <%- include('./partials/header.ejs'); -%>
+  </header>
+  <section id="home " class="container my-4">
+    <h1>Home</h1>
+    <p>
+      <%= homeText %>
+    </p>
+  </section>
+
+  <!-- Dinamically rendering all posts into the home page using EJS -->
+  <section class="post ">
+
+    <div class="container">
+      <h2>Journal Entries</h2>
+
+      <% for(let i=0; i<newPosts.length; i++) {%>
+        <div class="post__entry my-1">
+          <h3 class="post__entry--title">
+            <%= newPosts[i].title %>
+          </h3>
+          <div class="d-flex">
+
+            <% let truncatedPostText=newPosts[i].text.slice(0,100) %>
+              <p class="post__entry-text">
+                <%= truncatedPostText %> ...
+              </p>
+             <a class="read-more" href="<%= newPosts[i].url %>  ">Read More</a>
+              
+          </div>
+        </div>
+
+        <% } %>
+
+    </div>
+  </section>
+  <form action="/" method="post" class="container">
+
+    <button type="submit" class="btn btn-primary">Delete All</button>
+  </form>
+
+  <footer>
+    <%- include('./partials/footer.ejs'); -%>
+  </footer>
+
+</body>
+
+</html>

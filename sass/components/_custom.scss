@@ -1,0 +1,13 @@
+//Resets
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+//Custom variables for Bootstrap
+
+$primary: #404141; //Accordin to Bootstrap the !Default functionality of SASS will require to have the variable be declared first in order to overwrite the default valu
+$secondary: #1cad92;
+$light: hsl(217, 24%, 97%);
+//Import at the end
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
